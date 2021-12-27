@@ -11,7 +11,7 @@
         :index="index"
         :style="style"
         :text="value === '' ? undefined : value"
-        @delete = "catchDeleteItem"
+        @delete="catchDeleteItem"
       />
     </ul>
   </div>
@@ -38,10 +38,9 @@ export default {
       this.listArray.push(this.inputValue);
       this.inputValue = "";
     },
-    catchDeleteItem(index){
-      this.listArray.splice(index,1)
-
-    }
+    catchDeleteItem(index) {
+      this.listArray.splice(index, 1);
+    },
   },
 };
 </script>
