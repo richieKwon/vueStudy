@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Board from '../views/Board.vue'
+import User from '../views/User.vue'
+import UserProfile from '../views/UserProfile.vue'
+import UserPosts from '../views/UserPosts.vue'
 
 Vue.use(VueRouter)
 
@@ -24,7 +27,22 @@ const routes = [
     name: 'Board',
     component: Board
 
+  },
+  {
+    path: "/user/:id",
+    component: User,
+    children: [
+      {
+        path: 'profile',
+        component: UserProfile
+      },
+      {
+        path: 'posts',
+        component: UserPosts
+      }
+    ]
   }
+
 ]
 
 const router = new VueRouter({
