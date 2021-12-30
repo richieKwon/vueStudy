@@ -2,12 +2,30 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link :to="{name : 'About'}">About</router-link> |
+      <router-link :to="{ name: 'About' }">About</router-link> |
       <router-link to="/board">Board</router-link>
     </div>
     <router-view />
+    <div class="count">
+      {{ $store.state.count }}
+    </div>
+    <button @click="increase">Increase</button>
+    <div style="margin-top L 30px">
+      <input type = 'number' v-model="localCount">
+    </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    increase() {
+      this.$store.commit("increment");
+    },
+  },
+};
+</script>
+
 
 <style>
 #app {
